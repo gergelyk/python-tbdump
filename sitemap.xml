@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://gergelyk.github.io/python-tbdump/</loc>
+     <loc>https://gergelyk.github.io/python-tibidi/</loc>
      <lastmod>2020-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://gergelyk.github.io/python-tbdump/api/</loc>
+     <loc>https://gergelyk.github.io/python-tibidi/api/</loc>
      <lastmod>2020-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
