@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "tbdump"
+name = "tbd"
 version = "0.1.0"
 description = "Dump your traceback into a file."
 authors = ["Grzegorz Krasoń <grzegorz.krason@gmail.com>"]
