@@ -1,8 +1,8 @@
 import sys
 import runpy
-from tbdump import set_excepthook
-from tbdump.loader import load
-from tbdump.dumper import DEFAULT_DUMP_NAME, dump_exception
+from tibidi import set_excepthook
+from tibidi.loader import load
+from tibidi.dumper import DEFAULT_DUMP_NAME, dump_exception
 from enum import IntEnum
 
 class ExitCodes(IntEnum):

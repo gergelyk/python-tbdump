@@ -2,7 +2,7 @@ import sys
 import types
 import dill
 from contextlib import contextmanager
-from tbdump.dumper import DEFAULT_DUMP_NAME
+from tibidi.dumper import DEFAULT_DUMP_NAME
 
 class Dummy:
     def __init__(self, name, module):

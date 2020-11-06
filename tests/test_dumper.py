@@ -1,9 +1,7 @@
 import os
 import sys
-from tbdump import dump_exception, load
-
-
-from tbdump.loader import DummyModuleFactory, ModuleStub, Dummy
+from tibidi import dump_exception, load
+from tibidi.loader import DummyModuleFactory, ModuleStub, Dummy
 
 
 def test_import_module():
@@ -45,7 +43,7 @@ def test_dump():
     exc0fr1 = exc0[1]
     assert exc0fr1._code_line == 'return x / y'
     assert exc0fr1._func_name == 'bar'
-    assert exc0fr1._filename == '/home/kendo/wrk/python-tbdump/examples/example01.py'
+    assert exc0fr1._filename.endswith('/examples/example01.py')
     assert exc0fr1._lineno == 4
     assert set(exc0fr1.keys()) == {'bar', 'foo', 'x', 'y'}
 
@@ -58,13 +56,13 @@ def test_dump():
     exc1fr0 = exc1[0] # contains pytest variables
     assert exc1fr0._code_line == 'examples.example01.foo(0)'
     assert exc1fr0._func_name == 'test_dump'
-    assert exc1fr0._filename == '/home/kendo/wrk/python-tbdump/tests/test_dumper.py'
-    assert exc1fr0._lineno == 18
+    assert exc1fr0._filename.endswith('tests/test_dumper.py')
+    assert exc1fr0._lineno == 16
 
     exc1fr1 = exc1[1]
     assert exc1fr1._code_line == "raise Exception('Unexpected error') from exc"
     assert exc1fr1._func_name == 'foo'
-    assert exc1fr1._filename == '/home/kendo/wrk/python-tbdump/examples/example01.py'
+    assert exc1fr1._filename.endswith('examples/example01.py')
     assert exc1fr1._lineno == 11
     assert set(exc0fr1.keys()) == {'bar', 'foo', 'x', 'y'}
 

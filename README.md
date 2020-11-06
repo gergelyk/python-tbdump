@@ -1,10 +1,10 @@
-# tbdump
+# tibidi
 
 Dump your traceback into a file.
 
-* Documentation: <https://gergelyk.github.io/python-tbdump>
-* Repository: <https://github.com/gergelyk/python-tbdump>
-* Package: <https://pypi.python.org/pypi/tbdump>
+* Documentation: <https://gergelyk.github.io/python-tibidi>
+* Repository: <https://github.com/gergelyk/python-tibidi>
+* Package: <https://pypi.python.org/pypi/tibidi>
 * Author: [Grzegorz Krasoń](mailto:grzegorz.krason@gmail.com)
 * License: [MIT](LICENSE)
 
@@ -20,13 +20,13 @@ pyenv local 3.8.2
 ## Installation
 
 ```sh
-pip install tbdump
+pip install tibidi
 ```
 
 ## Usage
 
 ```sh
-poetry run python tbdump/hello.py
+poetry run python tibidi/hello.py
 ```
 
 ## Development
@@ -37,23 +37,23 @@ pip install --user poetry  # unless already installed
 poetry install
 
 # Auto-formatting
-poetry run docformatter -ri tbdump tests
-poetry run isort -rc tbdump tests
-poetry run yapf -r -i tbdump tests
+poetry run docformatter -ri tibidi tests
+poetry run isort -rc tibidi tests
+poetry run yapf -r -i tibidi tests
 
 # Checking coding style
-poetry run flake8 tbdump tests
+poetry run flake8 tibidi tests
 
 # Checking composition and quality
-poetry run vulture tbdump tests
-poetry run mypy tbdump tests
-poetry run pylint tbdump tests
-poetry run bandit tbdump tests
-poetry run radon cc tbdump tests
-poetry run radon mi tbdump tests
+poetry run vulture tibidi tests
+poetry run mypy tibidi tests
+poetry run pylint tibidi tests
+poetry run bandit tibidi tests
+poetry run radon cc tibidi tests
+poetry run radon mi tibidi tests
 
 # Testing with coverage
-poetry run pytest --cov tbdump --cov tests
+poetry run pytest --cov tibidi --cov tests
 
 # Rendering documentation
 poetry run mkdocs serve

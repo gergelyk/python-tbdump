@@ -37,7 +37,7 @@ def set_excepthook(filename: str = DEFAULT_DUMP_NAME, replace: bool = True,
 
     Arguments:
         filename: File name or path to the dump file.
-        replace: Set `False` to call original exception handler  after tbdump.
+        replace: Set `False` to call original exception handler after tbdump.
         silent: Set `True` to suppress messages.
     """
 

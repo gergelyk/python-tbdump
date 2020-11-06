@@ -1,7 +1,7 @@
 import sys
 
 from tbdump.__main__ import error
-from tbdump.loader import load
+from tibidi.loader import load
 
 def examine(dump):
     __builtins__ = globals()['__builtins__']

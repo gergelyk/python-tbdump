@@ -1,4 +1,4 @@
-from tbdump import dump_exception
+from tibidi import dump_exception
 
 
 def bar(x, y):

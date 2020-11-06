@@ -1,4 +1,4 @@
-# tbdump
+# tibidi
 
 The aim of this library is to provide an option of post-mortem debugging for
 the application which would crash on a remote machine, for instance on customer
@@ -67,8 +67,8 @@ implementation:
 
     ```python
     import sys
-    import tbdump
-    tbdump.set_excepthook()
+    import tibidi
+    tibidi.set_excepthook()
 
     def div(x, y):
         return x / y
@@ -93,7 +93,7 @@ implementation:
 
     ```python
     import sys
-    from tbdump import dump_exception
+    from tibidi import dump_exception
 
     def div(x, y):
         return x / y
@@ -141,8 +141,8 @@ away:
 like to apply any preprocessing in prior to that:
 
     ```python
-    import tbdump
-    dump = tbdump.load('traceback.pkl')
+    import tibidi
+    dump = tibidi.load('traceback.pkl')
     # any preprocessing here
     breakpoint()
     ```

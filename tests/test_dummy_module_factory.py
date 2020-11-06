@@ -1,5 +1,5 @@
 import pytest
-from tbdump.loader import DummyModuleFactory, ModuleStub, Dummy
+from tibidi.loader import DummyModuleFactory, ModuleStub, Dummy
 
 
 def test_import_module():

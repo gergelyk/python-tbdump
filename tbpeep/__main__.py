@@ -1,7 +1,7 @@
 import sys
 
 from tbdump.__main__ import error
-from tbdump.loader import load
+from tibidi.loader import load
 
 
 def tbpeep():

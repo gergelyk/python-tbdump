@@ -1,8 +1,8 @@
 # Best reference regarding this config file is:
 # https://github.com/squidfunk/mkdocs-material/blob/master/mkdocs.yml
 
-site_name: "tbdump"
-site_url: "https://gergelyk.github.io/python-tbdump"
+site_name: "tibidi"
+site_url: "https://gergelyk.github.io/python-tibidi"
 
 theme:
   name: "material"
@@ -14,14 +14,14 @@ theme:
   search_index_only: true
 
 # Appears in the title bar
-repo_name: python-tbdump
-repo_url: https://github.com/gergelyk/python-tbdump
+repo_name: python-tibidi
+repo_url: https://github.com/gergelyk/python-tibidi
 
 extra:
   # Appears in the footer bar
   social:
     - type: gitlab
-      link: https://github.com/gergelyk/python-tbdump
+      link: https://github.com/gergelyk/python-tibidi
     - type: envelope-o
       link: mailto:grzegorz.krason@gmail.com
 
@@ -72,7 +72,7 @@ plugins:
       module_name: docs.macros
   - mkdocstrings:
       watch:
-        - tbdump
+        - tibidi
   - markdownmermaid
   - progress
 #  - htmlproofer # this only shows broken links in the build console

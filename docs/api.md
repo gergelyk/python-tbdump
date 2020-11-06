@@ -1,5 +1,5 @@
 # API
 
-::: tbdump.dumper
-::: tbdump.loader
+::: tibidi.dumper
+::: tibidi.loader
 

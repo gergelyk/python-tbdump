@@ -1,5 +1,5 @@
-import tbdump
-tbdump.set_excepthook()
+import tibidi
+tibidi.set_excepthook()
 
 
 def bar(x, y):
