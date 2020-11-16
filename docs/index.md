@@ -5,8 +5,7 @@ the application which would crash on a remote machine, for instance on customer
 site.
 
 Project is influenced by [pydump](https://github.com/elifiner/pydump) and
-powered by [dill](https://github.com/uqfoundation/dill). This also results in
-some [limitations](#known-issues).
+powered by [cloudpickle](https://github.com/cloudpipe/cloudpickle).
 
 ## Faulty Application
 
@@ -65,7 +64,7 @@ capture any unhandled `Exception`:
 2. Alternatively we can install *tbdump* as exception hook using its default
 implementation:
 
-    ```python
+    ```python hl_lines="2 3"
     import sys
     import tibidi
     tibidi.set_excepthook()
@@ -91,7 +90,7 @@ implementation:
 3. Finally, we can customize exception handler by preparing its custom
 implementation:
 
-    ```python
+    ```python hl_lines="2 8 12-19"
     import sys
     from tibidi import dump_exception
 
@@ -162,19 +161,34 @@ like to apply any preprocessing in prior to that:
 
 ## Limitations
 
-There are a few data types which [dill](https://github.com/uqfoundation/dill)
-doesn't pickle by definition. At the time of writing these include generator,
-Frame, Traceback.
+There are a few data types which cannot be pickled. At the time of writing
+these include *generator*, *Frame*, *Traceback*. Therefore top-level traceback
+and corresponding frames are translated into substitutionary objects. Remaining
+objects of illegal types are replaced by objects of `NotPickleable` type.
 
-??? note
+List of illegal types can be extended by registering custom `islegal` function:
 
-    Top-level traceback and corresponding frames are translated into
-    substitutionary objects.
+```python
+import tibidi
+tibidi.config.islegal = lambda obj: not isinstance(obj, [SomeType, SomeOtherType])
+```
 
-Moreover, there are a few open issues with pickling
-[enums](https://github.com/uqfoundation/dill/issues/250) and
-[namespace packages](https://github.com/uqfoundation/dill/issues/389).
+There are also a few objects which are recognized by *cloudpickle* as illegal,
+e.g. `sys.stdin`. This kind of objects are replaced by instances of `Dummy`
+class, which contains error message which explains what has happend during
+pickling process.
 
 Last but not least, modules which were captured on a remote host but are not
-available in local environment are substituted by dummy objects in the process
-of loading dump files.
+available in local environment are substituted by objects of `ModuleStub` type
+in the process of loading dump files.
+
+Some of the objects may still cause problems in pickling process, or during
+loading them back. These objects can be covered by `islegal` as described
+above.
+
+More information about problems with pickling can be obtained by setting:
+
+```python
+import tibidi
+tibidi.config.debug = True
+```

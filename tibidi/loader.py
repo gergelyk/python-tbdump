@@ -4,17 +4,6 @@ import tibidi.pickler as pickler
 from contextlib import contextmanager
 from tibidi.dumper import DEFAULT_DUMP_NAME
 
-class Dummy:
-    def __init__(self, name, module):
-        self._name = name
-        self._module = module
-
-    def __repr__(self):
-        return f'<dummy {self._name!r} from {self._module!r}>'
-
-    def __iter__(self):
-        yield
-
 
 class ModuleStub(types.ModuleType):
     def __init__(self, fullname):
@@ -24,7 +13,10 @@ class ModuleStub(types.ModuleType):
         self.__loader__ = self
 
     def __getattr__(self, name):
-        return Dummy(name, self.__name__)
+        return ModuleStub(f'{self.__name__}.{name}')
+
+    def __iter__(self):
+        yield from ()
 
 
 class ModuleStubFinder:

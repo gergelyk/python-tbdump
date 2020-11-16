@@ -3,8 +3,10 @@ import sys
 import types
 import datetime
 import tibidi.pickler as pickler
+from tibidi.config import config
 
 DEFAULT_DUMP_NAME = 'traceback.pkl'
+ILLEGAL_TYPES = (types.FrameType, types.GeneratorType, types.TracebackType)
 
 class NotPickleable:
     def __init__(self, value):
@@ -54,7 +56,7 @@ def set_excepthook(filename: str = DEFAULT_DUMP_NAME, replace: bool = True,
             dump_exception(exc, filename)
             say('Traceback dumped into: ' + filename)
         except Exception:
-            if int(os.getenv('TBDUMP_DEBUG', '0')):
+            if config.debug:
                 raise
             say('Failed to dump traceback')
 
@@ -150,8 +152,7 @@ def frame_info(frame, lineno=None):
 
 
 def prepare_vars(all_vars):
-    illegal_types = (types.FrameType, types.GeneratorType, types.TracebackType)
-    is_pickleable = lambda value: not isinstance(value, illegal_types)
+    is_pickleable = lambda value: config.islegal(value) and not isinstance(value, ILLEGAL_TYPES)
     is_dunder = lambda name: name.startswith('__') and name.endswith('__')
     load = {name: value for name, value in all_vars.items() if not is_dunder(name)}
     for name, value in load.items():
