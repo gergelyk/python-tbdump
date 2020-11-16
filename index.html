@@ -342,7 +342,7 @@ and corresponding frames are translated into substitutionary objects. Remaining
 objects of illegal types are replaced by objects of <code>NotPickleable</code> type.</p>
 <p>List of illegal types can be extended by registering custom <code>islegal</code> function:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tibidi</span>
-<span class="n">tibidi</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">islegal</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">obj</span><span class="p">:</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">[</span><span class="n">SomeType</span><span class="p">,</span> <span class="n">AnotherType</span><span class="p">])</span>
+<span class="n">tibidi</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">islegal</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">obj</span><span class="p">:</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="n">SomeType</span><span class="p">,</span> <span class="n">AnotherType</span><span class="p">))</span>
 </code></pre></div>
 <p>There are also a few objects which are recognized by <em>cloudpickle</em> as illegal,
 e.g. <code>sys.stdin</code>. This kind of objects are replaced by instances of <code>Dummy</code>
