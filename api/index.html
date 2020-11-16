@@ -274,9 +274,7 @@ dump_exception<span class="p">(</span><span class="n">exc</span><span class="p">
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>67
-68
-69
+<pre><span></span>69
 70
 71
 72
@@ -294,7 +292,9 @@ dump_exception<span class="p">(</span><span class="n">exc</span><span class="p">
 84
 85
 86
-87</pre>
+87
+88
+89</pre>
 </div>
 </td>
 <td class="code">
@@ -319,7 +319,7 @@ dump_exception<span class="p">(</span><span class="n">exc</span><span class="p">
             <span class="k">del</span> <span class="n">last_exc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">dill</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">pickler</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">report</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </code></pre>
 </div>
 </td>
@@ -378,9 +378,7 @@ set_excepthook<span class="p">(</span><span class="n">filename</span><span class
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>34
-35
-36
+<pre><span></span>36
 37
 38
 39
@@ -408,7 +406,9 @@ set_excepthook<span class="p">(</span><span class="n">filename</span><span class
 61
 62
 63
-64</pre>
+64
+65
+66</pre>
 </div>
 </td>
 <td class="code">
@@ -436,7 +436,7 @@ set_excepthook<span class="p">(</span><span class="n">filename</span><span class
             <span class="n">dump_exception</span><span class="p">(</span><span class="n">exc</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
             <span class="n">say</span><span class="p">(</span><span class="s1">'Traceback dumped into: '</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'TBDUMP_DEBUG'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">debug</span><span class="p">:</span>
                 <span class="k">raise</span>
             <span class="n">say</span><span class="p">(</span><span class="s1">'Failed to dump traceback'</span><span class="p">)</span>
 
@@ -511,18 +511,18 @@ load<span class="p">(</span><span class="n">filename</span><span class="o">=</sp
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>50
+<pre><span></span>42
+43
+44
+45
+46
+47
+48
+49
+50
 51
 52
-53
-54
-55
-56
-57
-58
-59
-60
-61</pre>
+53</pre>
 </div>
 </td>
 <td class="code">
@@ -538,7 +538,7 @@ load<span class="p">(</span><span class="n">filename</span><span class="o">=</sp
 <span class="sd">    """</span>
     <span class="k">with</span> <span class="n">DummyModuleFactory</span><span class="p">():</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">dill</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pickler</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre>
 </div>
 </td>
