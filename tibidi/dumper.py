@@ -3,7 +3,7 @@ import sys
 import types
 import datetime
 import tibidi.pickler as pickler
-from tibidi.config import config
+from tibidi.config_ import config
 
 DEFAULT_DUMP_NAME = 'traceback.pkl'
 ILLEGAL_TYPES = (types.FrameType, types.GeneratorType, types.TracebackType)

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tibidi"
-version = "0.3.0"
+version = "0.3.1"
 description = "Dump your traceback into a file."
 authors = ["Grzegorz Krasoń <grzegorz.krason@gmail.com>"]
 homepage = "https://gergelyk.github.io/python-tibidi"

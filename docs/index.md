@@ -170,7 +170,7 @@ List of illegal types can be extended by registering custom `islegal` function:
 
 ```python
 import tibidi
-tibidi.config.islegal = lambda obj: not isinstance(obj, [SomeType, SomeOtherType])
+tibidi.config.islegal = lambda obj: not isinstance(obj, [SomeType, AnotherType])
 ```
 
 There are also a few objects which are recognized by *cloudpickle* as illegal,
