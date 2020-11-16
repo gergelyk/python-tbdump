@@ -1,6 +1,6 @@
 import sys
 import types
-import dill
+import tibidi.pickler as pickler
 from contextlib import contextmanager
 from tibidi.dumper import DEFAULT_DUMP_NAME
 
@@ -58,5 +58,5 @@ def load(filename: str = DEFAULT_DUMP_NAME) -> dict:
     """
     with DummyModuleFactory():
         with open(filename, 'rb') as f:
-            return dill.load(f)
+            return pickler.load(f)
 

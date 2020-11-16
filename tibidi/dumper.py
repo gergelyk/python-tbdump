@@ -2,7 +2,7 @@ import os
 import sys
 import types
 import datetime
-import dill
+import tibidi.pickler as pickler
 
 DEFAULT_DUMP_NAME = 'traceback.pkl'
 
@@ -84,7 +84,7 @@ def dump_exception(exc: Exception, filename: str = DEFAULT_DUMP_NAME,
             del last_exc[0]
 
     with open(filename, 'wb') as f:
-        dill.dump(report, f)
+        pickler.dump(report, f)
 
 
 def report_header():
