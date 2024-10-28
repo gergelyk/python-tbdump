@@ -1,4 +1,7 @@
 # tibidi
+![PyPI - Version](https://img.shields.io/pypi/v/tibidi)
+![PyPI - License](https://img.shields.io/pypi/l/tibidi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/tibidi)
 
 Dump your traceback into a file.
 
